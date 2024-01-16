@@ -1,0 +1,79 @@
+.card__container{
+display: flex;
+background: #1E213A;
+flex-direction: column;
+width: 290px;
+max-height: 120px;
+align-items: center;
+justify-content: flex-start;
+color: #E7E7EB;
+padding: 15px;
+}
+.card__title{
+font-size: 16px;
+font-weight: 500;
+margin-top: 0px;
+margin-bottom: 5px;
+}
+ .card__value{
+font-size: 40px;
+font-weight: 700;
+margin: 4px;
+ }
+ .card__value>span{
+    font-size: 26px;
+    font-weight: 500;
+ }
+.card__desc{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom:5px ;
+}
+
+.card__desc-icon{
+    display: flex;
+    background: #A09FB1;
+    align-items: center;
+    justify-content: center;
+width: 25px;
+height: 25px;
+padding: 2px;
+    border-radius: 30px;
+    margin-right: 10px;
+}
+.card__desc >p{
+
+font-size: 14px;
+font-weight: 500;
+}
+
+.material-symbols-outlined {
+align-self: center;
+margin : 2px 2px 0 0;
+    transform: rotate(-150deg);
+}
+.progress__bar{
+display: flex;
+flex-direction: column;
+gap: 0;
+width: 229px;
+
+}
+.progress__bar .percentage{
+    display: flex;
+    justify-content: space-between;
+    color: #A09FB1;
+    font-size: 12px;
+    font-weight: 700;
+}
+progress{
+width: 229px;
+height: 8px;
+
+}
+@media screen and (max-width:375px) {
+    .card__container{
+        justify-self: center;
+    }
+}

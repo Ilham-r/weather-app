@@ -1,24 +1,45 @@
-import logo from './logo.svg';
+import { useEffect, useState } from 'react';
 import './App.css';
+import Main from './containers/main';
+import SideBar from './containers/sidebar';
+import getFormattedWeatherData from './services/weatherservice';
+
 
 function App() {
+  const [query, setQuery]=useState({q:'alger'})
+  const units='metric'
+  const [weather,setWeather] = useState(null)
+  const handleCityChange = (newCity) => {
+    setQuery({ q: newCity });
+  };
+  useEffect(() => {
+    const fetchWeather = async () => {
+    
+      
+      await ( getFormattedWeatherData({ ...query, units }).then( async (data) => {
+        setWeather(data);
+        
+      }))
+    };
+
+    fetchWeather();
+  
+  }, [query]);
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='app'>
+      
+    {weather && (
+     
+     <>
+      <SideBar weather={weather} onCityChange={handleCityChange} />
+     
+      <Main weather={weather} forcast={weather.daily}/>
+      </>
+   
+  )}
     </div>
+   
   );
 }
 
